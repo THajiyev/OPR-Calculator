@@ -23,6 +23,8 @@ class OPR_Calculator:
             if match['comp_level']=='qm':
                 alliances_data = [match["alliances"]['red'],match["alliances"]['blue']]
                 for alliance_data in alliances_data:
+                    if alliance_data["score"]==-1:
+                        break
                     scores.append(alliance_data["score"])
                     matrix_a.append(self.get_row(alliance_data, teams))
         matrix_a = np.array(matrix_a) 
